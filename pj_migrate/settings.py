@@ -80,9 +80,18 @@ from dotenv import (
     load_dotenv,
 )
 load_dotenv(find_dotenv())
+
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600),
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pj_migrate', #データベースの名前
+        'USER': 'root', #ユーザー名 
+        'PASSWORD': 'password', #パスワードがある場合は書く
+        'PORT': '3306', #ポート番号 XAMPP>MySQL部に記載 デフォルト3306でOK
+    }
 }
+
+
 
 
 # Password validation
